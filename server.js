@@ -3,14 +3,14 @@ const  { v4: uuidv4 } = require('uuid');
 const  {errorHandle, resWriteData} = require('./httpMsg');
 const port = process.env.PORT || 3005;
 
-todos = []
+todos = [];
 const requestListener = (req, res) => {
-    const Headers = {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-        "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
-        "Content-Type": "application/json",
-    };
+	const headers = {
+		"Access-Control-Allow-Headers": "Content-Type, Authorization, Content-Length, X-Requested-With",
+		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Methods": "PATCH, POST, GET, OPTIONS, DELETE",
+		"Content-Type": "application/json",
+	};
 
     let body = "";
     req.on("data", (chunk) => {
@@ -28,7 +28,7 @@ const requestListener = (req, res) => {
                         title: title,
                         id: uuidv4(),
                     };
-                    todo.push(todo);
+                    todos.push(todo);
                     resWriteData(res,todo);
                 } else {
                     errorHandle(res,40001);
@@ -41,8 +41,8 @@ const requestListener = (req, res) => {
     }else if(req.url == "/todos" && req.method == "DELETE"){
         todos.length = 0;
         resWriteData(res,todos);
-    }else if(req.url.startsWith("/todos/") && req.method == "DELETE"){
-        const id = res.url.split("/").pop();
+    }else if(req.url.startsWith("/todos/") && req.method == "DELETE") {
+        const id = req.url.split("/").pop();
         const index = todos.findIndex(element => element.id == id);
         const todo = {...todos[index]};
         if (index !== -1) {
@@ -54,7 +54,7 @@ const requestListener = (req, res) => {
     }else if(req.url.startsWith("/todos/") && req.method == "PATCH"){
         req.on("end", () => {
             try {
-                const id = res.url.split("/").pop();
+                const id = req.url.split("/").pop();
                 const index = todos.findIndex(element => element.id == id);
                 const todo = JSON.parse(body).title;
                 if (index !== -1 && todo !== undefined) {
@@ -64,9 +64,9 @@ const requestListener = (req, res) => {
                     errorHandle(res,40001);
                 }
             } catch (error) {
-                errorHandle(res,40002);
+                errorHandle(res, 40002);
             }
-        })
+        });
     }else if( req.method == "OPTIONS"){
         res.writeHead(200, Headers);
         res.end();

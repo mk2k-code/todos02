@@ -1,8 +1,8 @@
 const headers = {
-	"Access-Control-Allow-Headers": "Content-Type, Authorization, Content-Length, X-Requested-With",
-	"Access-Control-Allow-Origin": "*",
-	"Access-Control-Allow-Methods": "PATCH, POST, GET, OPTIONS, DELETE",
-	"Content-Type": "application/json",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, Content-Length, X-Requested-With",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "PATCH, POST, GET, OPTIONS, DELETE",
+    "Content-Type": "application/json",
 };
 
 function errorHandle(res, errorCode) {
@@ -35,7 +35,7 @@ function errorHandle(res, errorCode) {
 	res.end();
 }
 
-function resWiteData(res, data) {
+function resWriteData(res, data) {
 	res.writeHead(200, headers);
 	res.write(
 		JSON.stringify({
@@ -46,4 +46,4 @@ function resWiteData(res, data) {
 	res.end();
 }
 
-module.exports = { errorHandle, resWiteData };
+module.exports = { errorHandle, resWriteData };
