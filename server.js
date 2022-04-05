@@ -18,19 +18,21 @@ const requestListener = (req, res) => {
     });
 
     if(req.url == "/todos" && req.method == "GET"){
-
+        resWriteData(res,todos);
     }else if(req.url == "/todos" && req.method == "POST"){
 
     }else if(req.url == "/todos" && req.method == "DELETE"){
-
+        todos.length = 0;
+        resWriteData(res,todos);
     }else if(req.url.startsWith("/todos/") && req.method == "DELETE"){
 
     }else if(req.url.startsWith("/todos/") && req.method == "PATCH"){
 
     }else if( req.method == "OPTIONS"){
-
+        res.writeHead(200, Headers);
+        res.end();
     }else{
-
+        errorHandle(res,404);
     }
 };
 const server =http.createServer(requestListener);
