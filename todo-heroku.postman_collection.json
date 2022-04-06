@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "ddfa8d74-1222-4a5d-acce-c16f04ef706a",
+		"name": "todo-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查詢所有代辦",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OPTIONS",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆代辦",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"今天要coding01\"\r\n}\r\n   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆代辦 -err",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titl\":\"bbbbb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆代辦 -err2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"bbbbb\"\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除所有代辦",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆代辦",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos/7bf1403d-e41e-4d42-baeb-02433354ab6b",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos",
+						"7bf1403d-e41e-4d42-baeb-02433354ab6b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新單筆代辦",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"今天要@@xx............\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://morning-tundra-18340.herokuapp.com/todos/7bf1403d-e41e-4d42-baeb-02433354ab6b",
+					"protocol": "https",
+					"host": [
+						"morning-tundra-18340",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos",
+						"7bf1403d-e41e-4d42-baeb-02433354ab6b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
